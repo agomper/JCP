@@ -1,7 +1,7 @@
 #include "client.h"
 
 Client::Client() {
-    bufferSize = 1400;
+    bufferSize = 512;
     port = 1115;
 }
 

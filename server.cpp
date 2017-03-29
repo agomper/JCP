@@ -1,7 +1,7 @@
 #include "server.h"
 
 Server::Server() {
-    bufferSize = 1400;
+    bufferSize = 512;
     port = 1115;
 }
 
