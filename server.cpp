@@ -1,7 +1,7 @@
 #include "server.h"
 
 Server::Server() {
-    bufferSize = 1500;
+    bufferSize = 512;
     port = 1115;
 }
 
@@ -74,10 +74,13 @@ void Server::server_routine() {
 
         while(n){
             //printf("%lld of data received \n",n);
-            cout<<n<<" of data received \n";
+            //cout<<n<<" of data received \n";
 
             count++;
-            write(fd,buf,n); //File descriptor, content, nbytes to write
+            if ((write(fd,buf,n)) == -1) { //File descriptor, content, nbytes to write
+                cout<<"Error writing file. \n";
+                system("pause");
+            }
             bzero(buf,bufferSize);
             n=recvfrom(sfd,&buf,bufferSize,0,(struct sockaddr *)&clt,&l);
         }

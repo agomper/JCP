@@ -25,7 +25,7 @@ using namespace std;
 class Client {
     int bufferSize;
     int port;
-    char ipAddress[10]="127.0.0.1";
+    char ipAddress[10]="10.0.0.1"; //127.0.0.1 Local - 10.0.0.1 Network
     struct sockaddr_in sock_serv; //Structure address server
     char filename[50];
 public:
