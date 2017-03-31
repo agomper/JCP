@@ -11,8 +11,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     server.cpp \
-    client.cpp
+    client.cpp \
+    circularbuffer.cpp
 
 HEADERS += \
     server.h \
-    client.h
+    client.h \
+    circularbuffer.h

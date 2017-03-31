@@ -20,17 +20,24 @@
 
 #include <iostream>
 #include <unistd.h>
+#include "circularbuffer.h"
+#include <boost/circular_buffer.hpp>
+#include <pthread.h>
 using namespace std;
 
 class Server {
-    int bufferSize;
+    int messageSize, port;
+    bool producing;
     struct sockaddr_in sock_serv; //Server address structure
     struct sockaddr_in clt; //Client address structure
-    int port;
+    boost::circular_buffer<string> ringBuffer; //CircularBuffer
 public:
     Server();
     int create_server_socket ();
+    void old_server_routine();
     void server_routine();
+    void server_producer_thread();
+    void server_consumer_thread();
 };
 
 #endif // SERVER_H
